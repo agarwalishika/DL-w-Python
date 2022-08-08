@@ -8,6 +8,10 @@ import matplotlib.pyplot as plt
 def create_model():
     model = models.Sequential()
     model.add(layers.Dense(64, activation='relu', input_shape=(13,)))
+    # if we were to add weight regularization, then this is how we would do it:
+    # model.add(layers.Dense(64, kernel_regularizer=regularizers.l2(0.001), activation='relu', input_shape=(10000,)))
+    # here we are adding L2 regularization and the l2(0.001) means "every coefficient in the weight matrix of the 
+    # layer will add 0.001 * weight_value to the total loss of the network"
     model.add(layers.Dense(64, activation='relu'))
     model.add(layers.Dense(1))
 
