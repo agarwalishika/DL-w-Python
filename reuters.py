@@ -30,6 +30,10 @@ y_test = to_categorical(test_labels)
 # Build model
 model = models.Sequential()
 model.add(layers.Dense(64, activation='relu', input_shape=(num_words,)))
+# if you want to add a dropout layer, then this is how you do it:
+# model.add(layers.Dropout(0.5))
+# from what I can tell, I think this only allow 50% of the values to reach from one layer to another.
+# usually, dropout values are between 0.2 and 0.5
 model.add(layers.Dense(64, activation='relu'))
 # model.add(layers.Dense(36, activation='relu')) -> greatly reduces accuracy lol
 model.add(layers.Dense(num_labels, activation='softmax'))
