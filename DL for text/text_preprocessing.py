@@ -92,7 +92,9 @@ network.add(layers.Dense(32, activation='relu'))
 network.add(layers.Dense(1, activation='sigmoid'))
 
 # input the embedding matrix
-# if you 
+# if you input the embedding matrix, then the model overfits terribly. however, if you
+# don't input the matrix, then it doesn't overfit too bad. the accuracy is still very
+# low but it doesn't overfits
 # network.layers[0].set_weights([embedding_matrix])
 # network.layers[0].trainable = False
 
