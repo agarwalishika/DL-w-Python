@@ -5,7 +5,6 @@ contains 500 images of each class. Note: run this only once
 '''
 
 import os, shutil
-from signal import valid_signals
 
 original_dataset_dir = 'C:\\Users\\ishik\\le code\\DL in python\\dogs-vs-cats\\train'
 
