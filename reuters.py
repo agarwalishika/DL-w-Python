@@ -4,6 +4,7 @@ from keras import models
 from keras import layers
 import numpy as np
 import matplotlib.pyplot as plt
+from graph_results import eval_model
 
 num_labels = 46
 num_words = 10000
@@ -61,7 +62,8 @@ test_loss, test_acc = model.evaluate(x_test, y_test)
 print(f"test acc:{test_acc}, test_loss={test_loss}")
 
 # plotting training/validation loss
-history_dict = history.history
+eval_model(history)
+'''history_dict = history.history
 loss_vals = history_dict['loss']
 validation_loss_vals = history_dict['val_loss']
 epochs = range(1, num_epochs + 1)
@@ -85,4 +87,4 @@ plt.title('Training and validation accuracy')
 plt.xlabel('Epochs')
 plt.ylabel('Loss')
 plt.legend()
-plt.show()
+plt.show()'''

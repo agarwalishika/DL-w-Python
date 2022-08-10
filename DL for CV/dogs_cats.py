@@ -1,9 +1,13 @@
+import sys
+sys.path.append('C:\\Users\\ishik\\le code\\DL in python')
+
 from os.path import exists
 from keras import models
 from keras import layers
 import numpy as np
 from keras.preprocessing.image import ImageDataGenerator
 import matplotlib.pyplot as plt
+from graph_results import eval_model
 
 model_name = 'cats_and_dogs_small_2.h5'
 
@@ -71,21 +75,4 @@ history = model.fit_generator(
 model.save(model_name)
 
 # assess the model
-
-k = history.history.keys()
-
-acc = history.history['accuracy']
-val_acc = history.history['val_accuracy']
-loss = history.history['loss']
-val_loss = history.history['val_loss']
-
-epochs = range(1, len(acc) + 1)
-
-plt.plot(epochs, acc, 'bo', label = 'Training accuracy')
-plt.plot(epochs, val_acc, 'b', label = 'Validation accuracy')
-plt.legend()
-plt.figure()
-plt.plot(epochs, loss, 'bo', label = 'Training loss')
-plt.plot(epochs, val_loss, 'b', label = 'Validation loss')
-plt.legend()
-plt.show()
+eval_model(history)

@@ -1,31 +1,17 @@
+import sys
+sys.path.append('C:\\Users\\ishik\\le code\\DL in python')
+
 from keras import layers
 from keras import models
 import numpy as np
 from keras.applications import VGG16
 import matplotlib.pyplot as plt
 from keras.preprocessing.image import ImageDataGenerator
+from graph_results import eval_model
 
 conv_base = VGG16(weights='imagenet',
                   include_top=False, # whether or not to include the classifier on _top_ of the network
                   input_shape=(150, 150, 3))
-
-def eval_model(history):
-    acc = history.history['accuracy']
-    val_acc = history.history['val_accuracy']
-    loss = history.history['loss']
-    val_loss = history.history['val_loss']
-
-    epochs = range(1, len(acc) + 1)
-
-    plt.plot(epochs, acc, 'bo', label = 'Training accuracy')
-    plt.plot(epochs, val_acc, 'b', label = 'Validation accuracy')
-    plt.legend()
-    plt.figure()
-    plt.plot(epochs, loss, 'bo', label = 'Training loss')
-    plt.plot(epochs, val_loss, 'b', label = 'Validation loss')
-    plt.legend()
-    plt.show()
-
 
 base_dir = 'C:\\Users\\ishik\\le code\\DL in python\\dogs-vs-cats-small'
 train_dir = 'C:\\Users\\ishik\\le code\\DL in python\\dogs-vs-cats-small\\train'

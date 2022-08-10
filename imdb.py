@@ -3,6 +3,7 @@ from keras import models
 from keras import layers
 import numpy as np
 import matplotlib.pyplot as plt
+from graph_results import eval_model
 
 def vectorize_sequences(sequences, dimension=10000):
     results = np.zeros((len(sequences), dimension))
@@ -56,28 +57,4 @@ print(predictions[0:5])
 print(predictions[-5:])
 
 # plotting training/validation loss
-history_dict = history.history
-loss_vals = history_dict['loss']
-validation_loss_vals = history_dict['val_loss']
-epochs = range(1, num_epochs + 1)
-
-plt.plot(epochs, loss_vals, 'bo', label='Training loss')
-plt.plot(epochs, validation_loss_vals, 'b', label='Validation loss')
-plt.title('Training and validation loss')
-plt.xlabel('Epochs')
-plt.ylabel('Loss')
-plt.legend()
-plt.show()
-
-# plotting training/validation accuracy
-plt.clf()
-acc_vals = history_dict['accuracy']
-validation_acc_vals = history_dict['val_accuracy']
-
-plt.plot(epochs, acc_vals, 'bo', label='Training accuracy')
-plt.plot(epochs, validation_acc_vals, 'b', label='Validation accuracy')
-plt.title('Training and validation accuracy')
-plt.xlabel('Epochs')
-plt.ylabel('Loss')
-plt.legend()
-plt.show()
+eval_model(history)
