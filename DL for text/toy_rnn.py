@@ -13,7 +13,7 @@ b = np.random.random((output_features))
 
 successive_outputs = []
 for input_t in inputs:
-    output_t = np.tanh(np.dot(W, input_t) + np.dot(U, input_t) + b) # 1 if positive and -1 if negative
+    output_t = np.tanh(np.dot(W, input_t) + np.dot(U, input_t) + b) # keeps the values in [-1,1]
     successive_outputs.append(output_t)
     state_t = output_t
 

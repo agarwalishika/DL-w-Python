@@ -2,7 +2,6 @@ from keras.datasets import imdb
 from keras import models
 from keras import layers
 import numpy as np
-import matplotlib.pyplot as plt
 from graph_results import eval_model
 
 def vectorize_sequences(sequences, dimension=10000):
