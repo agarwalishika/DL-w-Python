@@ -14,7 +14,11 @@ b = np.random.random((output_features))
 successive_outputs = []
 for input_t in inputs:
 <<<<<<< HEAD
+<<<<<<< HEAD
     output_t = np.tanh(np.dot(W, input_t) + np.dot(U, input_t) + b) # keeps the values in [-1,1]
+=======
+    output_t = np.tanh(np.dot(W, input_t) + np.dot(U, input_t) + b) # 1 if positive and -1 if negative
+>>>>>>> 692e4645e4f801574aba1075b3640835211ad530
 =======
     output_t = np.tanh(np.dot(W, input_t) + np.dot(U, input_t) + b) # 1 if positive and -1 if negative
 >>>>>>> 692e4645e4f801574aba1075b3640835211ad530
